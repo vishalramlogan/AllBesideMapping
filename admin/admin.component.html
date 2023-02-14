@@ -1,0 +1,27 @@
+<link href="styles.scss" rel="stylessheet">
+<body class="full-height-grow">
+  <header class ="home-header">
+    <div class="container">
+      <nav class="home-nav">
+        <ul>
+          <li><a (click)="navigateToHomepage()">Return to Homepage</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="containerc">
+    <h1 class ="title">Administrator</h1> 
+    <div class="join-form">
+      <ng-container *ngFor="let userinfo of Response"> 
+        <p class="names" (click)="navigateToUserInfo(userinfo.username)">{{ userinfo.username }}</p>
+      </ng-container>
+      <form (submit)="delete($event)" class="join-form">
+        <div class="input-group">
+          <label>Username:</label>
+          <input type="text" id="delete">
+        </div>
+        <button type="submit" class="btn">Delete User</button>
+      </form>
+    </div>   
+  </div>
+</body>
